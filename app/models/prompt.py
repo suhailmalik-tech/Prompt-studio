@@ -15,6 +15,8 @@ class Prompt(Base):
 
     versions = relationship("PromptVersion", back_populates="prompt", cascade="all, delete-orphan")
 
+class PromptVersion(Base):
+    __tablename__ = "prompt_versions"
 
     id = Column(Integer, primary_key=True, index=True)
     prompt_id = Column(Integer,ForeignKey("prompts.id"),nullable=False)

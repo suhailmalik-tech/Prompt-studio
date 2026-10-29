@@ -4,7 +4,7 @@ from sqlalchemy import text
 from app.core.config import settings
 from app.core.db import get_db, engine
 from app.models.prompt import Base
-
+from app.api.prompts import router as prompts_router
 
 
 
@@ -16,7 +16,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
-
+app.include_router(prompts_router)
 
 @app.get("/")
 def read_root():
