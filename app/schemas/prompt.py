@@ -43,3 +43,15 @@ class PromptSummaryResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class PromptAnalyticsResponse(BaseModel):
+    total_prompts: int
+    total_optimization: int
+    total_tokens_saved: int
+    average_compression_ratio: float
+
+
+
+class Config:
+    from_attributes = True
